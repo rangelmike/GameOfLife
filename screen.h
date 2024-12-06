@@ -22,7 +22,8 @@
 #define SCREEN_NC 120
 #define SCREEN_NR 28
 
-#define  N_COLORS 8
+// #define  N_COLORS 8 Linux
+#define N_COLORS 15 //Windows
 #define  I_NRM  0
 #define  I_RED  1
 #define  I_GRN  2

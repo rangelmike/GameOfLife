@@ -43,7 +43,8 @@ void printMapaIni(vecCells *vivosAct){
     setColor(theme(0,DEAD_CLR));
     for(int c=0; c < SCREEN_NR; c++){
         for(int k=0; k < SCREEN_NC; k++){
-            printf("%c", '.');
+            printf("%c", 250); //windows
+            // printf("."); //linux
         }
         printf("\n");
     }
@@ -131,7 +132,8 @@ void updateMuertos(vecCells *vivosAct, cell *mueren[], int muertos){
         if(validaPos(mueren[c]->x, mueren[c]->y)){
             gotoxy(mueren[c]->x, mueren[c]->y);
             setColor(theme(0,DEAD_CLR));
-            printf("%c", '.');
+            printf("%c", 250); //windows
+            // printf("."); //linux
             gotoxy(0,0);
         }
         borra(vivosAct, mueren[c]);
