@@ -1,5 +1,5 @@
 // EN WINDOWS
-#include <windows.h>
+// #include <windows.h>
 //Define extra colours
 #define FOREGROUND_WHITE        (FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN)   //7
 #define FOREGROUND_YELLOW           (FOREGROUND_RED | FOREGROUND_GREEN)                 //3
@@ -36,9 +36,9 @@ void gotoxy(int x, int y) // en windows
 
 
 // USAR ESTA FUNCION EN LINUX/MAC
-//void gotoxy(int x,int y){
+// void gotoxy(int x,int y){
 //    printf("%c[%d;%df",0x1B,y,x);
-//}
+// }
 
 
 // ESTA SIRVE EN CUALQUIER SISTEMA LINUX/WINDOWS/MAC
@@ -51,16 +51,45 @@ void clearScreen(void){
         }
 }
 
-// ASI COMOM ESTA' SIRVE EN LINUX/MAC.
-// HAY QUE MODIFICARLA PARA WINDOWS COMO INDICA EN CASOS I_GRN, I_YEL.
-// VER AL FINAL DE LA FUNCION LOS COLORES DISPONIBLES
-void setColor(int idxColor){
-    idxColor%=N_COLORS;
-    WORD colores[] = {FOREGROUND_BLACK, FOREGROUND_RED, FOREGROUND_GREEN, FOREGROUND_YELLOW, FOREGROUND_BLUE, FOREGROUND_MAGENTA, FOREGROUND_CYAN, FOREGROUND_WHITE, FOREGROUND_INTENSE_BLUE, FOREGROUND_INTENSE_CYAN, FOREGROUND_INTENSE_GREEN, FOREGROUND_INTENSE_MAGENTA, FOREGROUND_INTENSE_RED, FOREGROUND_INTENSE_WHITE, FOREGROUND_INTENSE_YELLOW};
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), colores[idxColor]);
-}
+//WINDOWS
+// void setColor(int idxColor){
+//     idxColor%=N_COLORS;
+//     WORD colores[] = {FOREGROUND_BLACK, FOREGROUND_RED, FOREGROUND_GREEN, FOREGROUND_YELLOW, FOREGROUND_BLUE, FOREGROUND_MAGENTA, FOREGROUND_CYAN, FOREGROUND_WHITE, FOREGROUND_INTENSE_BLUE, FOREGROUND_INTENSE_CYAN, FOREGROUND_INTENSE_GREEN, FOREGROUND_INTENSE_MAGENTA, FOREGROUND_INTENSE_RED, FOREGROUND_INTENSE_WHITE, FOREGROUND_INTENSE_YELLOW};
+//     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), colores[idxColor]);
+// }
 
+//LINUX
+// void setColor(int idxColor){
+//     switch (idxColor) {
+//         case I_NRM:
+//             printf("\x1B[0m");
+//             break;
+//         case I_RED:
+//             printf("\x1B[31m");
+//             break;
+//         case I_GRN:
+//             printf("\x1B[32m");
+//             //SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);
+//             break;
+//         case I_YEL:
+//             printf("\x1B[33m");
+//             //SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_YELLOW);
+//             break;
+//         case I_BLU:
+//             printf("\x1B[34m");
+//             break;
+//         case I_MAG:
+//             printf("\x1B[35m");
+//             break;
+//         case I_CYN:
+//             printf("\x1B[36m");
+//             break;
+//         case I_WHT:
+//             printf("\x1B[37m");
+//             break;
+//     }
 
+// }
 
 
 // ejemplo de poner un color

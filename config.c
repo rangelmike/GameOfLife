@@ -22,7 +22,7 @@ int theme(int i, int cual){
     static int custom[3] = {-1,-1,-1};
     static int temas[][3] = {{I_WHT, I_WHT, I_WHT}, {I_GRN, I_GRN, I_GRN}, {I_MAG, I_YEL, I_WHT}, {I_YEL,I_MAG,I_WHT}, {I_WHT,I_GRN,I_CYN}, {I_RED, I_GRN, I_WHT}, {I_CYN, I_WHT, I_GRN} }; //{VIVO, MUERTO, TEXTO}
     if(i < 0){ //numeros negativos para indicar que se esta poniendo un tema customizado
-        custom[cual] = abs(i);
+        custom[cual] = i*-1;
         return 0;
     }
     if(i) selected = i; //numero positivo para seleccionar uno distinto de los predeterminados, si es 0 solo regresa la ultima seleccion que se hizo
@@ -34,13 +34,13 @@ int theme(int i, int cual){
 
 int speed(int i){
     static int s = 1;
-    if(i) s=abs(i);
+    if(i) s=i;
     return 101-s;
 }
 
 void customTheme(int i){
     if(i > 2) return;
-    char *simbolos[] = {"#", "..", "abc"};
+    char *simbolos[] = {"#", ".", "abc"};
     char *mensaje[] = {"celulas vivas", "celulas muertas", "texto"};
     int aux;
     do{
@@ -107,7 +107,7 @@ void config(){
             setColor(theme(c, ALIVE_CLR));
             printf("# ");
             setColor(theme(c, DEAD_CLR));
-            printf("%c ", 250);
+            printf("%c ", '.');
             setColor(theme(c, TEXT_CLR));
             printf("abc");
             setColor(2);
